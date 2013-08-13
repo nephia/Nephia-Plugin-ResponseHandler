@@ -12,13 +12,15 @@ my $v = Voson::Core->new(
         }, 
         'JSON',
         'ResponseHandler',
-        'Dispatch',
     ],
     app => sub {
-        get('/json' => sub {+{foo => 'bar'}});
-        get('/html' => sub {+{name => 'html', template => 'foo.html'}});
-        get('/array' => sub {[200, [], 'foobar']});
-        get('/scalar' => sub {'scalar!'});
+        my $req = req();
+        $req->path_info eq '/json'   ? +{foo => 'bar'} :
+        $req->path_info eq '/html'   ? +{name => 'html', template => 'foo.html'} :
+        $req->path_info eq '/array'  ? [200, [], 'foobar'] :
+        $req->path_info eq '/scalar' ? 'scalar!' :
+                                       [404, [], 'not found']
+        ;
     },
 );
 

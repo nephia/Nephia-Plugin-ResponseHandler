@@ -55,5 +55,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler/issues"
+      },
+      "homepage" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ytnobody/Voson-Plugin-ResponseHandler.git",
+         "web" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler"
+      }
+   },
    "version" : "0.01"
 }
