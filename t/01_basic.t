@@ -3,9 +3,9 @@ use warnings;
 use Test::More;
 use Plack::Test;
 use HTTP::Request::Common;
-use Voson::Core;
+use Nephia::Core;
 
-my $v = Voson::Core->new(
+my $v = Nephia::Core->new(
     plugins => [
         'View::MicroTemplate' => { 
             include_path => [File::Spec->catdir(qw/t tmpl/)],

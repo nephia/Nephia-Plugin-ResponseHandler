@@ -1,10 +1,10 @@
 {
-   "abstract" : "A plugin for Voson that provides response-handling feature",
+   "abstract" : "A plugin for Nephia that provides response-handling feature",
    "author" : [
       "ytnobody <ytnobody@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.5, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Minilla/v0.6.3, CPAN::Meta::Converter version 2.132140",
    "license" : [
       "perl_5"
    ],
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "Voson-Plugin-ResponseHandler",
+   "name" : "Nephia-Plugin-ResponseHandler",
    "no_index" : {
       "directory" : [
          "t",
@@ -42,9 +42,9 @@
       },
       "runtime" : {
          "requires" : {
-            "Voson" : "0",
-            "Voson::Plugin::JSON" : "0",
-            "Voson::Plugin::View::MicroTemplate" : "0",
+            "Nephia" : "0",
+            "Nephia::Plugin::JSON" : "0",
+            "Nephia::Plugin::View::MicroTemplate" : "0",
             "perl" : "5.008005"
          }
       },
@@ -57,13 +57,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler/issues"
+         "web" : "https://github.com/ytnobody/Nephia-Plugin-ResponseHandler/issues"
       },
-      "homepage" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler",
+      "homepage" : "https://github.com/ytnobody/Nephia-Plugin-ResponseHandler",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/ytnobody/Voson-Plugin-ResponseHandler.git",
-         "web" : "https://github.com/ytnobody/Voson-Plugin-ResponseHandler"
+         "url" : "git://github.com/ytnobody/Nephia-Plugin-ResponseHandler.git",
+         "web" : "https://github.com/ytnobody/Nephia-Plugin-ResponseHandler"
       }
    },
    "version" : "0.01"

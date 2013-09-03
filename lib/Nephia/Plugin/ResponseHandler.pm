@@ -1,9 +1,9 @@
-package Voson::Plugin::ResponseHandler;
+package Nephia::Plugin::ResponseHandler;
 use 5.008005;
 use strict;
 use warnings;
-use parent 'Voson::Plugin';
-use Voson::Response;
+use parent 'Nephia::Plugin';
+use Nephia::Response;
 
 our $VERSION = "0.01";
 
@@ -33,7 +33,7 @@ sub _hash_handler {
     my ($app, $context) = @_;
     my $res = $context->get('res');
     $res->{template} ?
-        $context->set('res' => Voson::Response->new(200, ['Content-Type' => 'text/html; charset=UTF-8'], $app->dsl('render')->(delete($res->{template}), $res)) ) :
+        $context->set('res' => Nephia::Response->new(200, ['Content-Type' => 'text/html; charset=UTF-8'], $app->dsl('render')->(delete($res->{template}), $res)) ) :
         $app->dsl('json_res')->($res)
     ;
 }
@@ -41,13 +41,13 @@ sub _hash_handler {
 sub _array_handler {
     my ($app, $context) = @_;
     my $res = $context->get('res');
-    $context->set('res' => Voson::Response->new(@$res));
+    $context->set('res' => Nephia::Response->new(@$res));
 }
 
 sub _scalar_handler {
     my ($app, $context) = @_;
     my $res = $context->get('res');
-    $context->set('res' => Voson::Response->new(200, [], $res));
+    $context->set('res' => Nephia::Response->new(200, [], $res));
 }
 
 1;
@@ -57,11 +57,11 @@ __END__
 
 =head1 NAME
 
-Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handling feature
+Nephia::Plugin::ResponseHandler - A plugin for Nephia that provides response-handling feature
 
 =head1 SYNOPSIS
 
-    use Voson plugins => [
+    use Nephia plugins => [
         'JSON',
         'View::MicroTemplate' => {...},
         'ResponseHandler'
@@ -77,7 +77,7 @@ Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handl
     };
     
     ### or you may sepcify your original handler
-    use Voson plugins => [
+    use Nephia plugins => [
         'ResponseHandler' => {
             HASH   => \&hash_handler,
             ARRAY  => \&array_handler,
@@ -100,7 +100,7 @@ Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handl
 
 =head1 DESCRIPTION
 
-Voson::Plugin::ResponseHandler provides response-handling feature for Voson app.
+Nephia::Plugin::ResponseHandler provides response-handling feature for Nephia app.
 
 =head1 LICENSE
 

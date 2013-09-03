@@ -1,10 +1,10 @@
 # NAME
 
-Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handling feature
+Nephia::Plugin::ResponseHandler - A plugin for Nephia that provides response-handling feature
 
 # SYNOPSIS
 
-    use Voson plugins => [
+    use Nephia plugins => [
         'JSON',
         'View::MicroTemplate' => {...},
         'ResponseHandler'
@@ -21,7 +21,7 @@ Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handl
     
 
     ### or you may sepcify your original handler
-    use Voson plugins => [
+    use Nephia plugins => [
         'ResponseHandler' => {
             HASH   => \&hash_handler,
             ARRAY  => \&array_handler,
@@ -45,7 +45,7 @@ Voson::Plugin::ResponseHandler - A plugin for Voson that provides response-handl
 
 # DESCRIPTION
 
-Voson::Plugin::ResponseHandler provides response-handling feature for Voson app.
+Nephia::Plugin::ResponseHandler provides response-handling feature for Nephia app.
 
 # LICENSE
 
