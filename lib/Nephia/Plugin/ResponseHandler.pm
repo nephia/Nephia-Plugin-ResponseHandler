@@ -5,7 +5,7 @@ use warnings;
 use parent 'Nephia::Plugin';
 use Nephia::Response;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 sub new {
     my ($class, %opts) = @_;
