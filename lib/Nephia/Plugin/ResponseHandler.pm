@@ -32,10 +32,20 @@ sub _response_handler {
 sub _hash_handler {
     my ($app, $context) = @_;
     my $res = $context->get('res');
-    $res->{template} ?
-        $context->set('res' => Nephia::Response->new(200, ['Content-Type' => 'text/html; charset=UTF-8'], $app->dsl('render')->(delete($res->{template}), $res)) ) :
-        $app->dsl('json_res')->($res)
-    ;
+    if ($res->{template}) {
+        my $template = delete($res->{template});
+        my $content_type = delete($res->{content_type}) || 'text/html; charset=UTF-8';
+        my $res_obj = Nephia::Response->new(
+            200, 
+            ['Content-Type' => $content_type], 
+            $app->dsl('render')->($template, $res)
+        ); 
+        $context->set('res' => $res_obj);
+        return $res_obj;
+    }
+    else {
+        return $app->dsl('json_res')->($res)
+    }
 }
 
 sub _array_handler {
@@ -47,7 +57,7 @@ sub _array_handler {
 sub _scalar_handler {
     my ($app, $context) = @_;
     my $res = $context->get('res');
-    $context->set('res' => Nephia::Response->new(200, [], $res));
+    $context->set('res' => Nephia::Response->new(200, ['Content-Type' => 'text/html; charset=UTF-8'], $res));
 }
 
 1;
